@@ -12,9 +12,9 @@ RUN apk add --no-cache \
     npm
 
 # Create non-root user (recommended)
-RUN addgroup -S deploy && adduser -S deploy -G deploy
+# RUN addgroup -S deploy && adduser -S deploy -G deploy
 
 WORKDIR /workspace
-USER deploy
+# USER deploy
 
 ENTRYPOINT ["/bin/bash"]

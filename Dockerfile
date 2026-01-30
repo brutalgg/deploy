@@ -1,4 +1,4 @@
-FROM alpine:3.19
+FROM alpine:3.23
 
 # Install only what we need
 RUN apk add --no-cache \
@@ -7,7 +7,9 @@ RUN apk add --no-cache \
     rsync \
     docker-cli \
     docker-cli-compose \
-    ca-certificates
+    ca-certificates \
+    nodejs \
+    npm
 
 # Create non-root user (recommended)
 RUN addgroup -S deploy && adduser -S deploy -G deploy

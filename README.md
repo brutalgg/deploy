@@ -12,9 +12,11 @@ Built on `alpine:3.23` with:
 
 - `bash` — shell for deploy scripts
 - `git` — clone/checkout sources
+- `curl` — reachability checks and API calls
 - `rsync` — copy artifacts to remotes
 - `gettext` — `envsubst` for templating config files
-- `docker-cli` + `docker-cli-compose` — drive Docker / Compose deploys
+- `docker-cli` + `docker-cli-buildx` + `docker-cli-compose` — drive Docker / Compose
+  deploys and build images with BuildKit
 - `ca-certificates` — TLS roots
 - `nodejs` + `npm` — run Node-based tooling
 
@@ -23,7 +25,7 @@ Built on `alpine:3.23` with:
 Pull a pinned version (recommended) or `latest`:
 
 ```sh
-docker pull ghcr.io/brutalgg/deploy:v0.2.0
+docker pull ghcr.io/brutalgg/deploy:v0.3.0
 docker pull ghcr.io/brutalgg/deploy:latest
 ```
 
@@ -33,7 +35,7 @@ Run a deploy script against the host Docker daemon:
 docker run --rm \
   -v "$PWD:/workspace" \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  ghcr.io/brutalgg/deploy:v0.2.0 \
+  ghcr.io/brutalgg/deploy:v0.3.0 \
   -c "docker compose up -d"
 ```
 
